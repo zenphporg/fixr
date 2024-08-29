@@ -4,14 +4,14 @@
     <a href="https://github.com/zenphporg/fixr/actions">
       <img src="https://github.com/zenphporg/fixr/workflows/tests/badge.svg" alt="Build Status">
     </a>
-    <a href="https://packagist.org/packages/zenphporg/fixr">
-      <img src="https://img.shields.io/packagist/dt/zenphporg/fixr" alt="Total Downloads">
+    <a href="https://packagist.org/packages/zenphp/fixr">
+      <img src="https://img.shields.io/packagist/dt/zenphp/fixr" alt="Total Downloads">
     </a>
-    <a href="https://packagist.org/packages/zenphporg/fixr">
-      <img src="https://img.shields.io/packagist/v/zenphporg/fixr" alt="Latest Stable Version">
+    <a href="https://packagist.org/packages/zenphp/fixr">
+      <img src="https://img.shields.io/packagist/v/zenphp/fixr" alt="Latest Stable Version">
     </a>
-    <a href="https://packagist.org/packages/zenphporg/fixr">
-      <img src="https://img.shields.io/packagist/l/zenphporg/fixr" alt="License">
+    <a href="https://packagist.org/packages/zenphp/fixr">
+      <img src="https://img.shields.io/packagist/l/zenphp/fixr" alt="License">
     </a>
 </p>
 
