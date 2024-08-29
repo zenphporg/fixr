@@ -3,6 +3,18 @@
 # 1.0.0 (2024-08-29)
 
 
+### Features
+
+* initial commit ([841f11f](https://github.com/zenphporg/fixr/commit/841f11f19f112f7cc3460f85af473b21db9f57f3))
+
+
+### Maintenance
+
+* unbump version ([c55faf2](https://github.com/zenphporg/fixr/commit/c55faf2f8ee4ef99b04d2e2eaac31efb7908bbec))
+
+# 1.0.0 (2024-08-29)
+
+
 ### Breaking
 
 * initial release ([8550103](https://github.com/zenphporg/fixr/commit/85501039c28f6fdae70f567caba6c306500c3a24))
