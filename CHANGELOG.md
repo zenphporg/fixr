@@ -1,5 +1,12 @@
 # Release Notes
 
+## [1.0.1](https://github.com/zenphporg/fixr/compare/v1.0.0...v1.0.1) (2024-08-29)
+
+
+### Code or other task
+
+* updates for testing and readme ([bd36686](https://github.com/zenphporg/fixr/commit/bd366868329ba962c46d950900ace4d24a381f3c))
+
 # 1.0.0 (2024-08-29)
 
 
