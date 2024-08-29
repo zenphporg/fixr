@@ -1,5 +1,18 @@
 # Release Notes
 
+## [1.0.2](https://github.com/zenphporg/fixr/compare/v1.0.1...v1.0.2) (2024-08-29)
+
+
+### Code Refactoring
+
+* updated test workflow name ([619fa9b](https://github.com/zenphporg/fixr/commit/619fa9b6f4851fdc0765703c2fe47ce86aba148d))
+
+
+### Maintenance
+
+* readme adjust ([2b70880](https://github.com/zenphporg/fixr/commit/2b70880dd3062a58f5859a660492407018ba1a14))
+* update test badge link ([cf60e72](https://github.com/zenphporg/fixr/commit/cf60e72db2428260648d1372ad8a849afb142a72))
+
 ## [1.0.1](https://github.com/zenphporg/fixr/compare/v1.0.0...v1.0.1) (2024-08-29)
 
 
