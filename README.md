@@ -2,7 +2,7 @@
 
 <p align="center">
     <a href="https://github.com/zenphporg/fixr/actions">
-      <img src="https://github.com/zenphporg/fixr/workflows/tests/badge.svg" alt="Build Status">
+      <img src="https://github.com/zenphporg/fixr/workflows/test/badge.svg" alt="Build Status">
     </a>
     <a href="https://packagist.org/packages/zenphp/fixr">
       <img src="https://img.shields.io/packagist/dt/zenphp/fixr" alt="Total Downloads">
