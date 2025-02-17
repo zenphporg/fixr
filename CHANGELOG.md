@@ -1,5 +1,17 @@
 # Release Notes
 
+## [1.0.3](https://github.com/zenphporg/fixr/compare/v1.0.2...v1.0.3) (2025-02-17)
+
+
+### Code Refactoring
+
+* support laravel 11 ([c95f778](https://github.com/zenphporg/fixr/commit/c95f7789c1a07b426675aeacad1d22292c415aae))
+
+
+### Maintenance
+
+* restructure badges in readme ([b0d4ea0](https://github.com/zenphporg/fixr/commit/b0d4ea073deeb0d201693a662c16ba5b065e51b5))
+
 ## [1.0.2](https://github.com/zenphporg/fixr/compare/v1.0.1...v1.0.2) (2024-08-29)
 
 
