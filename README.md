@@ -1,4 +1,4 @@
-# Fixr
+![Zen Foundation](https://raw.githubusercontent.com/zenphporg/.github/main/img/zenphp.png)
 
 <p align="center">
   <a href="https://github.com/zenphporg/fixr/actions"><img src="https://github.com/zenphporg/fixr/workflows/tests/badge.svg" alt="Build Status"></a>
@@ -9,7 +9,7 @@
 
 <a name="introduction"></a>
 
-## Introduction
+## About Fixr
 
 **Fixr** is an opinionated PHP code style fixer for minimalists. Fixr is built on top of **[PHP-CS-Fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer)** and makes it simple to ensure that your code style stays **clean** and **consistent**.
 
