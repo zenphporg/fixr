@@ -33,8 +33,16 @@ final class ElaborateSummary
    */
   public function execute(int $totalFiles, array $changes): int
   {
+    /** @var array<string, array{appliedFixers: list<string>, diff: string}> $changesWithList */
+    $changesWithList = array_map(function ($change) {
+      return [
+        'appliedFixers' => array_values($change['appliedFixers']),
+        'diff' => $change['diff'],
+      ];
+    }, $changes);
+
     $summary = new FixReport\ReportSummary(
-      $changes,
+      $changesWithList,
       $totalFiles,
       0,
       0,
@@ -62,14 +70,17 @@ final class ElaborateSummary
    */
   protected function displayUsingFormatter(ReportSummary $summary, int $totalFiles): void
   {
-    $reporter = match ($format = $this->input->getOption('format')) {
+    $format = $this->input->getOption('format');
+    assert(is_string($format) || is_null($format));
+
+    $reporter = match ($format) {
       'checkstyle' => new FixReport\CheckstyleReporter,
       'gitlab' => new FixReport\GitlabReporter,
       'json' => new FixReport\JsonReporter,
       'junit' => new FixReport\JunitReporter,
       'txt' => new FixReport\TextReporter,
       'xml' => new FixReport\XmlReporter,
-      default => abort(1, sprintf('Format [%s] is not supported.', $format)),
+      default => abort(1, sprintf('Format [%s] is not supported.', (string) $format)),
     };
 
     $this->output->write($reporter->generate($summary));

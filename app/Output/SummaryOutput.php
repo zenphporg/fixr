@@ -11,7 +11,7 @@ use App\ValueObjects\Issue;
 use Illuminate\Support\Collection;
 use PhpCsFixer\Console\Report\FixReport\ReportSummary;
 use PhpCsFixer\Error\ErrorsManager;
-use PhpCsFixer\FixerFileProcessedEvent;
+use PhpCsFixer\Runner\Event\FileProcessed;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
@@ -94,9 +94,10 @@ final class SummaryOutput
       ->map(fn ($information, $file) => new Issue(
         $path,
         $file,
-        $this->getSymbol(FixerFileProcessedEvent::STATUS_FIXED),
+        $this->getSymbol(FileProcessed::STATUS_FIXED),
         $information,
-      ));
+      ))
+      ->values();
 
     return $issues->merge(
       collect(

@@ -36,17 +36,23 @@ final class ConfigurationFactory
   /**
    * Creates a PHP CS Fixer Configuration with the given array of rules.
    *
-   * @param  array<string, array<string, array<int|string, string|null>|bool|string>|bool>  $rules
+   * @param  array<string, mixed>  $rules
    */
   public static function preset(array $rules): ConfigInterface
   {
     $localConfiguration = resolve(ConfigurationJsonRepository::class);
 
+    $indent = $localConfiguration->indent();
+    assert($indent !== '');
+
+    /** @var array<string, array<string, mixed>|bool> $mergedRules */
+    $mergedRules = array_merge($rules, $localConfiguration->rules());
+
     return (new Config)
       ->setParallelConfig(ParallelConfigFactory::detect())
       ->setFinder(self::finder())
-      ->setIndent($localConfiguration->indent())
-      ->setRules(array_merge($rules, $localConfiguration->rules()))
+      ->setIndent($indent)
+      ->setRules($mergedRules)
       ->setRiskyAllowed(true)
       ->setUsingCache(true);
   }

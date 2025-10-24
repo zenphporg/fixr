@@ -43,6 +43,7 @@ final class ConfigurationResolverFactory
 
     $preset = $localConfiguration->preset();
     $indent = $localConfiguration->indent();
+    assert($indent !== '');
 
     if (! in_array($preset, self::$presets)) {
       abort(1, 'Preset not found.');

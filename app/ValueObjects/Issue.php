@@ -13,7 +13,7 @@ final class Issue
   /**
    * Creates a new Issue instance.
    *
-   * @param  array<string, array<int, string>|\Throwable>  $payload
+   * @param  array<string, mixed>  $payload
    */
   public function __construct(
     protected string $path,
@@ -36,10 +36,16 @@ final class Issue
   public function description(bool $testing): string
   {
     if (! empty($this->payload['source'])) {
-      return $this->payload['source']->getMessage();
+      $source = $this->payload['source'];
+      assert($source instanceof \Throwable);
+
+      return $source->getMessage();
     }
 
-    return collect($this->payload['appliedFixers'])->map(function ($appliedFixer) {
+    /** @var array<int, string> $appliedFixers */
+    $appliedFixers = $this->payload['appliedFixers'] ?? [];
+
+    return collect($appliedFixers)->map(function ($appliedFixer) {
       return $appliedFixer;
     })->implode(', ');
   }
@@ -55,12 +61,16 @@ final class Issue
   /**
    * Returns the issue's code, if any.
    */
-  public function code(): ?string
+  public function code(): string
   {
     if (! $this->fixable()) {
       $content = file_get_contents($this->file);
+      assert($content !== false);
 
-      $exception = $this->payload['source']->getPrevious() ?: $this->payload['source'];
+      $source = $this->payload['source'];
+      assert($source instanceof \Throwable);
+
+      $exception = $source->getPrevious() ?: $source;
 
       return (new Highlighter)->highlight($content, $exception->getLine());
     }
@@ -79,15 +89,16 @@ final class Issue
   /**
    * Returns the issue's diff, if any.
    */
-  protected function diff(): ?string
+  protected function diff(): string
   {
     if ($this->payload['diff']) {
       $highlighter = new Highlighter;
       $reflector = new ReflectionClass($highlighter);
 
       $diff = $this->payload['diff'];
+      assert(is_string($diff));
 
-      $diff = str((string) $diff)
+      $diff = str($diff)
         ->explode("\n")
         ->map(function ($line) {
           if (Str::startsWith($line, '+')) {
@@ -101,6 +112,7 @@ final class Issue
 
       $method = tap($reflector->getMethod('getHighlightedLines'))->setAccessible(true);
       $tokenLines = $method->invoke($highlighter, "<?php\n".$diff);
+      assert(is_array($tokenLines));
       $tokenLines = array_slice($tokenLines, 3);
 
       $method = tap($reflector->getMethod('colorLines'))->setAccessible(true);

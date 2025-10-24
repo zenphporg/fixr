@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Output;
 
 use App\Concerns\InteractsWithSymbols;
-use PhpCsFixer\FixerFileProcessedEvent;
+use PhpCsFixer\Runner\Event\FileProcessed;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Terminal;
@@ -43,7 +43,7 @@ final class ProgressOutput
    */
   public function subscribe(): void
   {
-    $this->dispatcher->addListener(FixerFileProcessedEvent::NAME, [$this, 'handle']);
+    $this->dispatcher->addListener(FileProcessed::NAME, [$this, 'handle']);
   }
 
   /**
@@ -51,13 +51,13 @@ final class ProgressOutput
    */
   public function unsubscribe(): void
   {
-    $this->dispatcher->removeListener(FixerFileProcessedEvent::NAME, [$this, 'handle']);
+    $this->dispatcher->removeListener(FileProcessed::NAME, [$this, 'handle']);
   }
 
   /**
    * Handle the given processed file event.
    */
-  public function handle(FixerFileProcessedEvent $event): void
+  public function handle(FileProcessed $event): void
   {
     $symbolsOnCurrentLine = $this->processed % $this->symbolsPerLine;
 

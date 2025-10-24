@@ -6,4 +6,4 @@ parameters:
     - bootstrap
     - config
     - resources
-  level: 6
+  level: 9

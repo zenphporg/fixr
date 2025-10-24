@@ -29,8 +29,16 @@ final class GitPathsRepository implements PathsRepository
       abort(1, 'The [--dirty] option is only available when using Git.');
     }
 
-    $dirtyFiles = collect(preg_split('/\R+/', $process->getOutput(), flags: PREG_SPLIT_NO_EMPTY))
-      ->mapWithKeys(fn ($file) => [substr($file, 3) => trim(substr($file, 0, 3))])
+    $split = preg_split('/\R+/', $process->getOutput(), flags: PREG_SPLIT_NO_EMPTY);
+    assert($split !== false);
+
+    $dirtyFiles = collect($split)
+      ->mapWithKeys(function ($file) {
+        $key = substr((string) $file, 3);
+        $value = trim(substr((string) $file, 0, 3));
+
+        return [$key => $value];
+      })
       ->reject(fn ($status) => $status === 'D')
       ->map(fn ($status, $file) => $status === 'R' ? Str::after($file, ' -> ') : $file)
       ->map(function ($file) {

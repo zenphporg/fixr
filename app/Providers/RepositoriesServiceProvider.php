@@ -26,10 +26,15 @@ final class RepositoriesServiceProvider extends ServiceProvider
     $this->app->singleton(ConfigurationJsonRepository::class, function () {
       $input = resolve(InputInterface::class);
       $config = $input->getOption('config') ?: Project::path().'/fixr.json';
+      assert(is_string($config));
+
+      $noConfig = $input->getOption('no-config');
+      $preset = $input->getOption('preset');
+      assert(is_string($preset) || is_null($preset));
 
       return new ConfigurationJsonRepository(
-        $input->getOption('no-config') ? null : $config,
-        $input->getOption('preset'),
+        $noConfig ? null : $config,
+        $preset,
       );
     });
 

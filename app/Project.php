@@ -20,7 +20,11 @@ final class Project
       return self::resolveDirtyPaths();
     }
 
-    return $input->getArgument('path');
+    $path = $input->getArgument('path');
+    assert(is_array($path));
+
+    /** @var array<int, string> */
+    return array_values($path);
   }
 
   /**
@@ -28,7 +32,10 @@ final class Project
    */
   public static function path(): string
   {
-    return getcwd();
+    $cwd = getcwd();
+    assert($cwd !== false);
+
+    return $cwd;
   }
 
   /**
