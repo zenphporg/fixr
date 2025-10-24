@@ -15,7 +15,7 @@ it('works with a remote json file', function () {
   expect($repository->rules())->toBe([
     'no_unused_imports' => false,
   ]);
-})->skip('need to publish first');
+});
 
 it('may have rules options', function () {
   $repository = new ConfigurationJsonRepository(dirname(__DIR__, 2).'/Fixtures/rules/fixr.json', 'psr12');

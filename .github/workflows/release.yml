@@ -15,7 +15,7 @@ jobs:
       fail-fast: true
       matrix:
         os: [ubuntu-latest, windows-2019]
-        php: [8.2, 8.3]
+        php: [8.2, 8.3, 8.4]
 
     name: PHP ${{ matrix.php }} - ${{ matrix.os }}
 
@@ -70,7 +70,7 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.3'
+          php-version: '8.4'
           extensions: dom, curl, libxml, mbstring, zip, fileinfo
           ini-values: error_reporting=E_ALL
           tools: composer:v2
@@ -81,9 +81,9 @@ jobs:
           composer install
 
       - name: Setup Node
-        uses: actions/setup-node@v3.6.0
+        uses: actions/setup-node@v4
         with:
-          node-version: '22.3.0'
+          node-version: '24.10.0'
 
       - name: Install Dependencies
         run: npm install

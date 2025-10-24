@@ -22,7 +22,7 @@
     }
   ],
   "require": {
-    "php": "^8.2.0",
+    "php": "^8.2 || ^8.3 || ^8.4",
     "ext-json": "*",
     "ext-mbstring": "*",
     "ext-tokenizer": "*",
@@ -55,7 +55,7 @@
     "sort-packages": true,
     "optimize-autoloader": true,
     "platform": {
-      "php": "8.2.0"
+      "php": "8.4.0"
     },
     "allow-plugins": {
       "pestphp/pest-plugin": true
