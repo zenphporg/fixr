@@ -1,5 +1,23 @@
 # Release Notes
 
+## [1.0.4](https://github.com/zenphporg/fixr/compare/v1.0.3...v1.0.4) (2025-10-24)
+
+
+### Bug Fixes
+
+* update release.config for latest writer ([fb8679b](https://github.com/zenphporg/fixr/commit/fb8679bd541791d92a0d421907b6ef01914d8202))
+
+
+### Code Refactoring
+
+* update dependencies and workflows ([5feebed](https://github.com/zenphporg/fixr/commit/5feebed134541983a91375317cf5b0a308dbdb7c))
+* update for latest versions ([eff60ea](https://github.com/zenphporg/fixr/commit/eff60ea6caa838a859d340f2b783ede518f6798d))
+
+
+### Maintenance
+
+* update workflows to win 2022 ([27fd00a](https://github.com/zenphporg/fixr/commit/27fd00a756b0b0e2af7b07ab3297db7f4963aa38))
+
 ## [1.0.3](https://github.com/zenphporg/fixr/compare/v1.0.2...v1.0.3) (2025-02-17)
 
 
